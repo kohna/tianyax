@@ -19,6 +19,7 @@
 + 登录次数  uslon
 + 最新登录  uslal
 + 注册时间  usreg
+
 ### 博客信息    TABLE (blogInfo) PK id
 + 博主id   uid
 + 博客名称  bonam
@@ -27,6 +28,7 @@
 + 总访问量  bovis
 + 开博时间  botim
 + 博文数量  bonum
+
 ### 博文信息    TABLE (textInfo) PK id
 + 博主id    uid
 + 博文ID    tid
@@ -34,6 +36,7 @@
 + 博文地址  txurl
 + 博文时间  txtim
 + 博文内容  txcon
+
 ### 评论信息    TABLE (commInfo) PK id
 + 博主id      uid
 + 评论人      cousr
@@ -42,11 +45,13 @@
 + 评论文章url courl
 + 评论人博客  coblg
 + 评论时间    cotim
+
 ### 粉丝列表    TABLE (fansInfo) PK id
 + 博主id   uid
 + 粉丝ID   aid
 + 粉丝姓名  fanam
 + 粉丝地址  faurl
+
 ### 关注列表    TABLE (follInfo) PK id
 + 博主id    uid
 + 关注id    fid
@@ -67,12 +72,14 @@
 
 ### getuser
     用于创建线程，传送博主URL给getuserinfo
+
 ### getuserinfo
     判断用户是否存在;
     判断该用户是否存在博客;
     抓取用户的信息;
     创建线程抓取博客(getblog);
     创建线程抓取粉丝(getfans)和关注(getfoll);
+
 ### getfans
     构造参数提交粉丝查询;
     解析提交返回结果;
@@ -80,6 +87,7 @@
 ### getfansinfo
     获取粉丝情况;
     进一步交给gfx处理
+
 ### gfx
     构造SQL存入数据库
     
@@ -87,9 +95,11 @@
     构造参数提交关注查询;
     解析提交返回结果;
     分析关注数量;
+
 ### getfollinfo
     获取关注情况;
     进一步交给gfi处理
+
 ### gfi
     构造SQL存入数据库
     
@@ -103,9 +113,11 @@
 ### gettext
     获取文章URL地址列表
     数据交给gettextinfo处理
+
 ### gettextinfo
     解析URL地址列表
     数据交给gettextcontent处理
+
 ### gettextcontent
     处理地址，获取文章信息
     文章情况存入数据库
@@ -117,6 +129,7 @@
     
 
 ## 错误情况说明(Warning不计)
+
 ### MySQLdb SQL execute error
     级别:错误
     频率:中等
@@ -168,17 +181,25 @@
 + 编辑器：Pycharm
 + 编码： UTF-8
 + MYSQL：5.5.40-0+wheezy1
+
 ## 测试结果
 + 用时:5小时10分
 + 范围(uid)：1130-50306
 + 错误数: SQL execute error(165),ConnectionError(49),KeyError(11)，IndexError(7)
 + 数据量：108.0MB
-    bloginfo:64.0KB
-    comminfo:27.5MB
-    fansinfo:6.5MB
-    follinfo:256.0KB
-    textinfo:73.6MB
-    userinfo:48.0KB
+	
+	bloginfo:64.0KB
+
+	comminfo:27.5MB
+
+	fansinfo:6.5MB
+	
+	follinfo:256.0KB
+	
+	textinfo:73.6MB
+	
+	userinfo:48.0KB
+
 + 进程情况：MAX=10
 
 
